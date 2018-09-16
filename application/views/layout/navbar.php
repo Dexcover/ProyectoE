@@ -69,9 +69,9 @@
                        <div class="container-fluid2">
                        <div class="tab-content"> <div class="tab-pane active" id="kids">
                        <ul class="nav-list list-inline">
-                       <li><a data-filter=".89" href="<?php echo base_url(); ?>contacto"><img width="150" height="100" src="<?php echo base_url(); ?>public/images/contactoimg.jpeg"><span><b>Cotizador Especifico </b></span></a></li>
+                       <li><a data-filter=".89" href="<?php echo base_url(); ?>contacto"><img width="150" height="100" src="<?php echo base_url(); ?>public/images/contactoimg.jpeg"><span><b>Contacto General</b></span></a></li>
 
-                       <li><a data-filter=".97" href="<?php echo base_url(); ?>cotizar"><img width="150" height="100" src="<?php echo base_url(); ?>public/images/seocgeneral.png"><span>Cotizador General</span></a></li>
+                       <li><a data-filter=".97" href="<?php echo base_url(); ?>cotizar"><img width="150" height="100" src="<?php echo base_url(); ?>public/images/seocgeneral.png"><span>Diseñor gráfico</span></a></li>
 
                          </ul> </div> </div> </div> </div> </li>
 

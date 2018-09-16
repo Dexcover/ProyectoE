@@ -5,7 +5,7 @@
    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>public/images/aguja.png" />
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>public/css/bootstrap.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Abril+Fatface|Dancing+Script|Lobster|Russo+One|Yellowtail|Tangerine|Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Lobster|Yellowtail|Tangerine|Julius+Sans+One|Raleway|Open+Sans+Condensed:300" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/css/estilosBordin.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="<?php echo base_url();?>public/css/estilosBordin.css" rel="stylesheet">

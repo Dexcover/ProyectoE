@@ -1,3 +1,19 @@
+.font-titulos-paginas{
+    font-family: 'Tangerine', cursive;
+    font-size: 50px;
+    font-weight: bold;
+ }
+
+
+.font-subtitulo{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;
+}
+
+.font-label-forms{
+    font-family: 'Raleway'; 
+}
+
 .f-serv-main {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 28px;

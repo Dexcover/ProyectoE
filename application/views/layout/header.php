@@ -20,7 +20,7 @@
 
   <style>
     #productosEspeciales{
-      height: 300px;
+      height: 310px;
       box-sizing: border-box;
     }
 
@@ -30,18 +30,18 @@
     }
 
     #nombreProducto {
-      
-      height: 50px;
+      margin-top: 15px;
+      height: 40px;
       box-sizing: border-box;
     }
 
     #precioAnterior{
-      height: 20px;
+      height: 15px;
       box-sizing: border-box;
     }
 
     #precioAhora{
-      height: 30px;
+      height: 40px;
       box-sizing: border-box;
     }
 

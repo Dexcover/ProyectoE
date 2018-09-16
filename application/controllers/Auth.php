@@ -16,130 +16,25 @@ class Auth extends CI_Controller
     }
     public function index()
     {
-
-        $this->load->helper('form');
-
         if (empty($this->session->userdata("cedula"))) {
             if (!isset($_POST['user']) || !isset($_POST['clave'])) {
-                
                 $this->load->view('layout-auth/header');
                 $this->load->view('layout/navbar');
                 $this->load->view('auth/login');
                 $this->load->view('layout-auth/footer');
-
-            } else {
-
-                $validar['usuario'] = $this->login_model->comprobar($_POST['user'], $_POST['clave']);
-
-                if ($validar['usuario']) {
-
-                    //Valida si es usuario Administrador y guarda sesiones
-                    $verificacion = $this->login_model->sesiones($_POST['user']);
-
-                    if ($verificacion) {
-
-                        header('Location: ../Examples');
-
-                    } else {
-                        $this->mmetricas->iniciarSesion();
-                        $this->load->view('layout/header');
-                        $this->load->view('layout/navbar');
-                        $this->load->view('usuario/menu');
-                        $this->load->view('usuario/perfil');
-                        $this->load->view('usuario/pie');
-                        $this->load->view('layout/Extrafooter');
-
-                    }
-
-                } else {
-                    //    Si no logró validar
-                    $mensaje="Sus datos no pudieron ser comprobados. Reintente por favor.";
-                    $data['mensaje']=$mensaje;  
-
-                    $this->load->view('layout-auth/header');
-                    $this->load->view('layout/navbar');
-                    $this->load->view('auth/login', $data);
-                    $this->load->view('layout-auth/footer');
-
-                }
             }
         } else {
-            $this->load->view('layout/header');
+            $this->load->view('layout-auth/header');
             $this->load->view('layout/navbar');
             $this->load->view('usuario/menu');
             $this->load->view('usuario/perfil');
             $this->load->view('usuario/pie');
             $this->load->view('layout/Extrafooter');
         }
-
     }
 
     public function compraInicio()
     {
-
-        $this->load->helper('form');
-
-        if (empty($this->session->userdata("cedula"))) {
-            if (!isset($_POST['user'])) {
-
-                $this->load->view('layout/header');
-                $this->load->view('layout/navbar');
-                $this->load->view('auth/login_compra');
-                $this->load->view('layout/footer');
-
-            } else {
-
-                $validar['usuario'] = $this->login_model->comprobar($_POST['user'], $_POST['clave']);
-
-                if ($validar['usuario']) {
-
-                    //Valida si es usuario Administrador y guarda sesiones
-                    $verificacion = $this->login_model->sesiones($_POST['user']);
-
-                    if ($verificacion) {
-
-                        header('Location: ../Examples');
-
-                    } else {
-
-                        $this->compra();
-                        $id_usuario = $this->session->userdata('id_usuario');
-
-                        if ($id_usuario == 3) {
-                            $datos['misPedidos'] = $this->mpedido->Pedidos($id_usuario);
-                        } else {
-                            $datos['misPedidos'] = $this->mpedido->pedidosUsuario($id_usuario);
-                        }
-
-                        #borrar el carrito actual y los items
-                        $this->load->view('layout/header');
-                        $this->load->view('layout/navbar');
-                        $this->load->view('usuario/menu');
-                        $this->load->view('usuario/pedido', $datos);
-                        $this->load->view('usuario/pie');
-                        $this->load->view('layout/Extrafooter');
-
-                    }
-
-                } else {
-                    //    Si no logró validar
-                    echo "<script>alert('Usuario No Valido...');</script>";
-
-                    $this->load->view('layout/header');
-                    $this->load->view('layout/navbar');
-                    $this->load->view('auth/login_compra');
-                    $this->load->view('layout/footer');
-
-                }
-            }
-        } else {
-            $this->load->view('layout/header');
-            $this->load->view('layout/navbar');
-            $this->load->view('usuario/menu');
-            $this->load->view('usuario/perfil');
-            $this->load->view('usuario/pie');
-            $this->load->view('layout/Extrafooter');
-        }
 
     }
 
@@ -152,7 +47,7 @@ class Auth extends CI_Controller
     public function verificar()
     {
 
-        $this->load->view('layout/header');
+        $this->load->view('layout-auth/header');
         $this->load->view('layout/navbar');
         $this->load->view('index.php/auth/verificar');
         $this->load->view('layout/footer');
@@ -162,7 +57,7 @@ class Auth extends CI_Controller
     public function memegen()
     {
 
-        $this->load->view('layout/header');
+        $this->load->view('layout-auth/header');
         $this->load->view('layout/navbar');
         $this->load->view('index.php/auth/memegen');
         $this->load->view('layout/footer');
@@ -180,49 +75,124 @@ class Auth extends CI_Controller
 
     }
 
-    public function register()
+    public function registrar()
     {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('cedula', 'cedula', 'required');
-        $this->form_validation->set_rules('nombre', 'nombre', 'required');
-        $this->form_validation->set_rules('apellido', 'apellido', 'required');
-        $this->form_validation->set_rules('nick', 'nick', 'required');
-        $this->form_validation->set_rules('correo', 'correo', 'required');
-        $this->form_validation->set_rules('contraseña', 'contraseña', 'required');
-        $this->form_validation->set_rules('fecha', 'fecha', 'required');
-
-        if ($this->form_validation->run() === false) {
-            
-            $mensaje="Para disfrutar todas nuestras promociones ingrese todos los datos completos.";
-            $data['mensaje']=$mensaje;
+        if (!empty($this->session->userdata("cedula"))) {
+            //cuando un usuario previamente logeado ingresa a resgistrar
             $this->load->view('layout-auth/header');
-            $this->load->view('layout/navbar');
-            $this->load->view('auth/register', $data);
-            $this->load->view('layout-auth/footer');
-
-        } else {
-            $this->login_model->set_users();
-            //Valida si es usuario Administrador y guarda sesiones
-            $this->load->view('layout/header');
             $this->load->view('layout/navbar');
             $this->load->view('usuario/menu');
             $this->load->view('usuario/perfil');
             $this->load->view('usuario/pie');
             $this->load->view('layout/Extrafooter');
-
+            return false;
         }
+
+        if(!isset($_POST['cedula'])){  
+            $this->load->view('layout-auth/header');
+            $this->load->view('layout/navbar');
+            $this->load->view('auth/register');
+            $this->load->view('layout-auth/footer');
+            return false;
+        }
+
+        @$Cedula  = htmlspecialchars($_POST['cedula']);
+        @$Nombre  = htmlspecialchars($_POST['nombre']);
+        @$Apellido  = htmlspecialchars($_POST['apellido']);
+        @$Correo  = htmlspecialchars($_POST['correo']);
+        @$Fecha  = htmlspecialchars($_POST['fecha']);
+        @$Nick  = htmlspecialchars($_POST['nick']);
+        @$Contra  = htmlspecialchars($_POST['contraseña']);
+
+        if(Empty($Cedula) or Empty($Nombre) or Empty($Apellido) or Empty($Correo) 
+        or Empty($Fecha) or Empty($Nick) or Empty($Contra)){
+            $mensaje="Sus datos no tienen un formato vàlido para registarlo. Reintente por favor.";
+            $data['mensaje']=$mensaje;  
+            $this->load->view('layout-auth/header');
+            $this->load->view('layout/navbar');
+            $this->load->view('auth/register', $data);
+            $this->load->view('layout-auth/footer');
+            return false;
+        }
+        $status=$this->login_model->set_users($Nombre, $Apellido, $Cedula, $Contra, $Correo, $Fecha, $Nick); 
+        if($status){
+                $this->load->view('layout-auth/header');
+                $this->load->view('layout/navbar');
+                $this->load->view('usuario/menu');
+                $this->load->view('usuario/perfil');
+                $this->load->view('usuario/pie');
+                $this->load->view('layout/Extrafooter');
+         }else{
+                $mensaje="Sus datos presentan un tipo de inconsistencia, nick o correo electrónicos ya están en uso";
+                $data['mensaje']=$mensaje;  
+                $this->load->view('layout-auth/header');
+                $this->load->view('layout/navbar');
+                $this->load->view('auth/register', $data);
+                $this->load->view('layout-auth/footer');
+        }  
+       
+
+        
+           
     }
 
     public function login()
     {
-        $this->load->helper('form');
+        if (!empty($this->session->userdata("cedula"))) {
+            //cuando un usuario previamente logeado ingresa a resgistrar
+            $this->load->view('layout-auth/header');
+            $this->load->view('layout/navbar');
+            $this->load->view('usuario/menu');
+            $this->load->view('usuario/perfil');
+            $this->load->view('usuario/pie');
+            $this->load->view('layout/Extrafooter');
+            return false;
+        }
 
-        $this->load->view('layout/header');
-        $this->load->view('layout/navbar');
-        $this->load->view('auth/login');
-        $this->load->view('layout/footer');
+        if(!isset($_POST['user']) or !isset($_POST['clave'])){  
+            $this->load->view('layout-auth/header');
+            $this->load->view('layout/navbar');
+            $this->load->view('auth/login');
+            $this->load->view('layout-auth/footer');
+            return false;
+        }
+
+
+        $validar['usuario'] = $this->login_model->comprobar($_POST['user'], $_POST['clave']);
+
+        if ($validar['usuario']) {
+
+        //Valida si es usuario Administrador y guarda sesiones
+          $verificacion = $this->login_model->sesiones($_POST['user']);
+
+            if ($verificacion) {
+
+                header('Location: ../Examples');
+
+            } else {
+                            $this->mmetricas->iniciarSesion();
+                            $this->load->view('layout-auth/header');
+                            $this->load->view('layout/navbar');
+                            $this->load->view('usuario/menu');
+                            $this->load->view('usuario/perfil');
+                            $this->load->view('usuario/pie');
+                            $this->load->view('layout/Extrafooter');
+
+                    }
+
+        } else {
+                    //    Si no logró validar
+                    $mensaje="Sus datos no pudieron ser comprobados en nuestro sistema. Reintente por favor.";
+                    $data['mensaje']=$mensaje;  
+                    $this->load->view('layout-auth/header');
+                    $this->load->view('layout/navbar');
+                    $this->load->view('auth/login', $data);
+                    $this->load->view('layout-auth/footer');
+
+        }
+           
+        
 
     }
     public function about()
@@ -244,7 +214,7 @@ class Auth extends CI_Controller
         $this->session->sess_destroy();
         $this->load->helper('form');
 
-        $this->load->view('layout/header');
+        $this->load->view('layout-auth/header');
         $this->load->view('layout/navbar');
         $this->load->view('index.php/auth/login');
         $this->load->view('layout/footer');
@@ -262,7 +232,7 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() === false) {
 
-            $this->load->view('layout/header');
+            $this->load->view('layout-auth/header');
             $this->load->view('layout/navbar');
             $this->load->view('index.php/auth/cambiarCon');
             $this->load->view('layout/footer');
@@ -274,7 +244,7 @@ class Auth extends CI_Controller
                     </script>";
             $this->session->sess_destroy();
 
-            $this->load->view('layout/header');
+            $this->load->view('layout-auth/header');
             $this->load->view('layout/navbar');
             $this->load->view('index.php/auth/login');
             $this->load->view('layout/footer');

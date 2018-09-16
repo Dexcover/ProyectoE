@@ -16,7 +16,7 @@ class Cotizar extends CI_Controller
     {
         $data = null;
         $this->load->view('layout-cotizar/header');
-        $this->load->view('layout-cotizar/navbar');
+        $this->load->view('layout/navbar');
         $this->load->view('cotizar', $data);
         $this->load->view('layout-cotizar/Extrafooter');
         $this->output->cache(TIEMPO_CACHE);
@@ -147,7 +147,6 @@ class Cotizar extends CI_Controller
         
         $this->email->attach($url . $pathImage);
         $this->email->attach($url . $pathImage2);
-        
         $this->email->from($Correo, $numero);
         $this->email->to('gerencia@bordintex.com');
         $this->email->cc('info@bordintex.com');

@@ -53,7 +53,7 @@
 <?php echo $mensaje; ?>
 
             <?php endif?>
-<h2 class="f-copyr" style="font-size: 50px" align="left">Cotizador General de Bordados<br></h2>
+<h2 class="f-copyr" style="font-size: 50px" align="left">Diseñador gráfico de Bordados<br></h2>
 <p>Cotiza tu bordado en prendas tradicionales como: camisetas, chompas, buzos, sudaderas, etc.</p>
 
     <div class="col-md-12">

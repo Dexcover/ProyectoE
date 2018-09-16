@@ -103,7 +103,7 @@ Productos Especiales<b style="color: #c325ab">Personalizaciones creativas</b></h
               </a>
 
               <div class="text-right" style="margin-top: -19px;">
-                <small class="text-muted" style="font-size: 15px;"><?php echo $value2['N_PROD']; ?></small>
+                <small class="text-muted" style="font-size: 15px;"><?=ucwords(strtolower($value2['N_PROD'])); ?></small>
               </div>
 
               <div class="text-right" style="margin-top: -4px;"> 
@@ -132,12 +132,12 @@ Productos Especiales<b style="color: #c325ab">Personalizaciones creativas</b></h
 
        <div id="imagenProducto">
           <a style="background-color: #b36fc200;" class="thumbnail fancybox" rel="ligthbox" href="<?=base_url();?>public/productos/<?php echo $value2['PROIMG']; ?>">
-            <img  height="150" class="img-responsive" alt="" src="<?=base_url();?>public/productos/<?=ucwords(strtolower($value2['PROIMG']));  ?>">
+            <img  height="150" class="img-responsive" alt="" src="<?=base_url();?>public/productos/<?=$value2['PROIMG'];  ?>">
           </a>
         </div>
             
         <div id="nombreProducto" >
-              <small class="text-muted"><?php echo $value2['N_PROD']; ?></small>
+              <small ><?=ucwords(strtolower($value2['N_PROD'])); ?></small>
         </div>
 
          <div id="precioAnterior" class="text-right" > 

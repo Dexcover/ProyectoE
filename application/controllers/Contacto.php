@@ -97,7 +97,7 @@ class Contacto extends CI_Controller
         @$Mensaje = htmlspecialchars($_POST['Mensaje']);
         
         #valida que esten campos necesario completos
-         if(Empty($Empresa) or Empty($Correo)){
+        if(Empty($Empresa) or Empty($Correo)){
         $mensaje = "<div style='text-align: center'> <div class='alert alert-danger' role='alert'>No se ha podido enviar su requerimiento, revise si ingresa la información apropiadamente.</div></div>"; 
         $data['mensaje'] = $mensaje;
         $this->load->view('layout/contacto/header');

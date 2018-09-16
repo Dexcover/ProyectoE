@@ -6,21 +6,25 @@
     </div>
 <?php endif ?>
 
-<?php echo form_open('auth/register'); ?>
-<link href="<?php echo base_url("assets/css/main.css");?>" rel="stylesheet">
+
 <div class="container">
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">Nuevo Usuario</h1>
+	               		<h1 class="font-titulos-paginas">Nuevo Usuario</h1>
+                        <p class="font-subtitulo">Registración</p>
 	               		<hr />
 	               	</div>
 	            </div>
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post">
+                <?php if(strcmp(ENVIRONMENT, "development") === 0):?>
+					<form role="form" id="Formulario" action="<?=base_url("index.php/auth/registrar");?>" method="POST" enctype="multipart/form-data">
+                    <?php else: ?>
+                            <form role="form" id="Formulario" action="<?=base_url("auth/registrar");?>" method="POST" enctype="multipart/form-data">
+                    <?php endif; ?>	
 
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Cédula</label>
+							<label for="name" class="font-label-forms cols-sm-2 control-label">Cédula</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-id-card-o fa-fw" aria-hidden="true"></i></span>
@@ -30,7 +34,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Nombre</label>
+							<label for="email" class="font-label-forms cols-sm-2 control-label">Nombre</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -40,7 +44,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Apellido</label>
+							<label for="username" class="font-label-forms cols-sm-2 control-label">Apellido</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
@@ -52,7 +56,7 @@
 
 
 						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Correo Electrónico</label>
+							<label for="username" class="font-label-forms cols-sm-2 control-label">Correo Electrónico</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -62,7 +66,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Fecha de Nacimiento</label>
+							<label for="username" class="font-label-forms cols-sm-2 control-label">Fecha de Nacimiento</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-calendar-o fa" aria-hidden="true"></i></span>
@@ -72,7 +76,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Nombre de Usuario</label>
+							<label for="username" class="font-label-forms cols-sm-2 control-label">Nombre de Usuario</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user-circle fa" aria-hidden="true"></i></span>
@@ -82,7 +86,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Contraseña</label>
+							<label for="password" class="font-label-forms cols-sm-2 control-label">Contraseña</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>

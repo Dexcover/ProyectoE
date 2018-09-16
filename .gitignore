@@ -20,3 +20,6 @@ application/config/config.php
 
 #base
 assets/esquemabase/*
+
+#archivos de public
+public/contacto

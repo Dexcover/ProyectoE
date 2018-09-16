@@ -7,8 +7,8 @@
     <div class="container">
        
         
-        <h2 class="f-copyr" style="font-size: 50px" align="left">Cotizador Específico de Bordados<br></h2>
-        <p>Cotiza tu bordado a través de este formulario, como por ejemplo: 
+        <h1 class="f-copyr" style="font-size: 50px" align="left">Contacto para Bordados<br></h1>
+        <p>Te ayudamos con tu bordado a través de este formulario, como por ejemplo: 
         <ul>
             <li>Parches Bordados.</li>
             <li>Bordados personalizados en prendas.</li>
@@ -23,8 +23,15 @@
         
         
         <div class="container">
-            <form role="form" id="Formulario" action="<?=base_url("Contacto/contactarSecurity");?>" method="POST" enctype="multipart/form-data">
-                <div class="col-md-6">
+            
+        <?php if(strcmp(ENVIRONMENT, "development") === 0):?>
+            <form role="form" id="Formulario" action="<?=base_url("index.php/contacto/contactarSecurity");?>" method="POST" enctype="multipart/form-data">
+        <?php else: ?>
+            <form role="form" id="Formulario" action="<?=base_url("contacto/contactarSecurity");?>" method="POST" enctype="multipart/form-data">
+        <?php endif; ?>
+               
+            
+            <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label" for="Motivo">Motivo:</label>
                         <select name="Motivo" class="form-control">

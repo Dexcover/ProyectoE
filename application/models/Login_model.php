@@ -9,24 +9,44 @@ class Login_model extends CI_Model
         $this->load->library('encryption');
         $this->load->library('session');
     }
-    public function set_users()
+    public function set_users($nombre, $apellido, $cedula, $contra, $correo, $fecha_na, $nick)
     {
-        $this->load->helper('url');
-        ////metodo de encriptacion
+        
+        $this->db->where('nick',$nick);
+        $query = $this->db->get('usuario');
+        if ($query->num_rows() >= 1) {
+           return false;
+        }
 
-        $encrypted_pass = $this->encryption->encrypt($this->input->post('contraseña'));
+        $this->db->where('correo',$correo);
+        $query = $this->db->get('usuario');
+        if ($query->num_rows() >= 1) {
+           return false;
+        }
+
+        $this->db->where('cedula',$cedula);
+        $query = $this->db->get('usuario');
+        if ($query->num_rows() >= 1) {
+           return false;
+        }
+
+        $encrypted_pass = $this->encryption->encrypt($contra);
         $data           = array(
-            'nombre'           => $this->input->post('nombre'),
-            'apellido'         => $this->input->post('apellido'),
-            'cedula'           => $this->input->post('cedula'),
+            'nombre'           => $nombre,
+            'apellido'         => $apellido,
+            'cedula'           => $cedula,
             'contraseña'       => $encrypted_pass,
-            'correo'           => $this->input->post('correo'),
-            'fecha_nacimiento' => $this->input->post('fecha'),
-            'nick'             => $this->input->post('nick'),
+            'correo'           => $correo,
+            'fecha_nacimiento' => $fecha_na,
+            'nick'             => $nick,
         );
-
         $this->db->insert('usuario', $data);
-        $this->sesiones($this->input->post('nick'));
+        $this->sesiones($nick);
+        return true;
+
+
+
+
     }
     
     public function registroForzado($nombre,$fecha)
