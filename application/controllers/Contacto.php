@@ -139,7 +139,13 @@ class Contacto extends CI_Controller
         }
         
         $this->email->from($Correo, $Empresa);
-        $this->email->to('gerencia@bordintex.com');
+
+        if(strcmp(ENVIRONMENT, "development") === 0 or strcmp(ENVIRONMENT, "preproduction")){
+            $this->email->to('pruebas@bordintex.com');
+        }else{
+            $this->email->to('gerencia@bordintex.com');
+        }
+
         $this->email->cc('info@bordintex.com');
         $this->email->bcc('contacto@bordintex.com');
         $this->email->subject('Bordintex Contacto: ' . $Motivo);

@@ -148,7 +148,11 @@ class Cotizar extends CI_Controller
         $this->email->attach($url . $pathImage);
         $this->email->attach($url . $pathImage2);
         $this->email->from($Correo, $numero);
-        $this->email->to('gerencia@bordintex.com');
+        if(strcmp(ENVIRONMENT, "development") === 0 or strcmp(ENVIRONMENT, "preproduction")){
+            $this->email->to('pruebas@bordintex.com');
+        }else{
+            $this->email->to('gerencia@bordintex.com');
+        }
         $this->email->cc('info@bordintex.com');
         $this->email->bcc('contacto@bordintex.com');
         $contenido = "Han enviado un mensaje desde el sitio de cotizaciones de www.bordintex.com\n"
