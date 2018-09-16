@@ -18,6 +18,7 @@ class Contacto extends CI_Controller
         $this->load->view('layout/navbar');
         $this->load->view('contacto');
         $this->load->view('layout/contacto/Extrafooter');
+        $this->output->cache(TIEMPO_CACHE);
     }
 
     public function contactar_unused()

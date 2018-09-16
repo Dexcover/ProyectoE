@@ -13,10 +13,12 @@ class Quienes_somos extends CI_Controller
 
     public function index()
     {
+
         $this->load->view('layout/header');
         $this->load->view('layout/navbar');
         $this->load->view('quienes-somos');
         $this->load->view('layout/Extrafooter');
+        $this->output->cache(TIEMPO_CACHE);
     }
 
 }

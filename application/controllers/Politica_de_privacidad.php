@@ -14,6 +14,7 @@ class Politica_de_privacidad extends CI_Controller {
 		$this->load->view('layout/navbar');
 		$this->load->view('politica-privacidad');
 		$this->load->view('layout/Extrafooter');
+		$this->output->cache(TIEMPO_CACHE);
 	}
 
 }

@@ -19,7 +19,7 @@ class Concurso extends CI_Controller
         $this->load->view('layout/navbar');
         $this->load->view('concurso/index');
         $this->load->view('layout/concurso/footer');
-
+        $this->output->cache(TIEMPO_CACHE);
     }
 
     public function concursar()

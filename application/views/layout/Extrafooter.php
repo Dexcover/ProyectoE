@@ -1,34 +1,4 @@
-  <div class="row " style="text-align: center;"><div class="col-md-12 "> <a href="<?php echo base_url(); ?>"><img alt="logo principal" height="80px" style="margin-top: 20px" src="<?php echo base_url(); ?>public/images/logo principal.png"></a></div></div>
-<div class="row">
-
-
-<div class="row">
-<div class="divider"></div>
-<div class="footer"> <div class="container"> <a href='https://www.facebook.com/bordintex'><i class="fa fa-facebook fa-3x fa-fw"></i></a> <a href='#'><i class="fa fa-twitter fa-3x fa-fw"></i></a> <a href='#'><i class="fa fa-youtube-play fa-3x fa-fw"></i></a> </span> </div> <div class="row"> <div class="col-lg-12"> <p class="font-enfasis">Copyright &copy; BordinTex 2017 <em >Excelencia en Bordados</em></p> </div>
-
-<div class="row">
-
-  <div class="col-lg-12">
-
-    <a style="color: darkblue"  href="<?=base_url();?>Politica_de_privacidad">Politica de Privacidad </a>|
-    <a style="color: darkblue"  href="<?=base_url();?>Quienes_somos"> Quíenes somos </a>|
-    <a style="color: darkblue"  href="<?=base_url();?>Contacto"> Contacto </a> |
-    <a style="color: darkblue"  href="<?=base_url();?>Concurso"> Concurso </a>
-
-  </div>
-
-  <div class="col-lg-12" style="margin-top: 10px"> <p style="font-size: 16px; " class="font-enfasis">Desarrollado por <a style="color: darkblue" href="http://www.softupcloud.com">SoftupCloud</a></em></p> </div>
-
-</div>
-
- </div> </div>
-
-</div>
-<!-- jQuery -->
-<script src="<?php echo base_url(); ?>public/js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
+<?php $this->view("FinalPage"); ?>
 
     <script>
         $(document).ready(function(){

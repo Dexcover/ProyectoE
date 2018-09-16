@@ -8,7 +8,4 @@
 
 
  </ul></div><div class="ws_bullets"><div><a href="#" title=""><span><img src="<?php echo base_url(); ?>public/data1/tooltips/produccionbordin2.jpg" alt=""/>1</span></a><a href="#" title=""><span><img src="<?php echo base_url(); ?>public/data1/tooltips/produccionbordin2.jpg" alt=""/>2</span></a><a href="#" title="Trabajos con calidad"><span><img src="<?php echo base_url(); ?>public/data1/tooltips/produccionbordin2.jpg" alt="Trabajos con calidad"/>3</span></a></div></div><div class="ws_shadow"></div></div>
-
-
-
 </div>

@@ -19,6 +19,7 @@ class Cotizar extends CI_Controller
         $this->load->view('layout-cotizar/navbar');
         $this->load->view('cotizar', $data);
         $this->load->view('layout-cotizar/Extrafooter');
+        $this->output->cache(TIEMPO_CACHE);
     }
 
     public function enviarCotizacion_unused()

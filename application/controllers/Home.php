@@ -44,6 +44,9 @@ class Home extends CI_Controller
         $this->load->view('layout/slider');
         $this->load->view('home', $data);
         $this->load->view('layout/footer');
+
+        $this->output->cache(TIEMPO_CACHE);
+        $this->output->delete_cache();
     }
 
 }

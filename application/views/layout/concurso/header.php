@@ -1,45 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+<head>
 
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="author" content="BordinTex">
+<?php $this->view('metadatos'); ?>
 
     <meta name="description" content="Mira cómo se ilumina el rostro de quien amas con Bordintex. Participa en
     nuestro concurso y gana fabulos premios. Registrate">
-
-    <meta property="og:image" content="http://www.bordintex.com/public/concursoBordintex.png" />
-
     <title>Concurso - BordinTex</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url();?>public/css/bootstrap.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Abril+Fatface" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="<?php echo base_url();?>public/css/small-business.css" rel="stylesheet">
-
-     <link href="<?php echo base_url();?>public/css/estilosBordin.css" rel="stylesheet">
-     <link rel="icon" type="image/png" href="<?php echo base_url();?>public/images/aguja.png" />
+     
+     
 
    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/styles.css" />
-      <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/demo.css" />
-
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/pater.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/component.css" />
-            <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/normalize.css" />
-
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/css/demo.css" />
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/pater.css" />
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/component.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/slicebox.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/custom.css" />
-   
-
-
-
- <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster|Russo+One|Yellowtail" rel="stylesheet"> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   
@@ -299,20 +280,10 @@ main {
 </style>    
 
 
-  <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-72229459-2', 'auto'); ga('send', 'pageview');</script>
 
-          <!-- Google Tag Manager -->
-          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NJP2XHG');</script>
-          <!-- End Google Tag Manager --><!-- Smartsupp Live Chat script -->
-          <script type="text/javascript">var _smartsupp = _smartsupp || {};_smartsupp.key = 'c20431d18cfa092c58a0710628a6b2caf450dfb9';window.smartsupp||(function(d) {var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];s=d.getElementsByTagName('script')[0];c=d.createElement('script');c.type='text/javascript';c.charset='utf-8';c.async=true;c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);})(document);</script>
 
 </head>
 
 <body style="background-color: #e8e8e8;padding-top: 0px;">
 
-<div class="row " style="text-align: center;">
-
-<div class="col-md-12 ">
-    <a  href="<?php echo base_url();?>"><img alt="logo principal"  height="80px" style="margin-top: 20px" src="<?php echo base_url();?>public/images/logo principal.png"></a>
-</div>
-</div>
+<?php $this->view('logo'); ?>
