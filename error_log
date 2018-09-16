@@ -1,0 +1,4 @@
+[09-Aug-2018 18:14:08 America/Chicago] PHP Fatal error:  Cannot use [] for reading in /home/softupcloud/bordintex.com/application/controllers/Contacto.php on line 81
+[09-Aug-2018 18:16:04 America/Chicago] PHP Fatal error:  Cannot use [] for reading in /home/softupcloud/bordintex.com/application/controllers/Contacto.php on line 100
+[12-Aug-2018 22:18:59 America/Chicago] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/softupcloud/bordintex.com/application/controllers/Cotizar.php on line 123
+[22-Aug-2018 19:15:32 America/Chicago] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/softupcloud/bordintex.com/application/controllers/Pedido.php on line 36
