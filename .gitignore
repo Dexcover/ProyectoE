@@ -22,4 +22,5 @@ application/config/config.php
 assets/esquemabase/*
 
 #archivos de public
-public/contacto
+public/contacto/*
+public/cotizaciones/*

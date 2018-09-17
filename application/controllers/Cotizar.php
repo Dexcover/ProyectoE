@@ -148,7 +148,7 @@ class Cotizar extends CI_Controller
         $this->email->attach($url . $pathImage);
         $this->email->attach($url . $pathImage2);
         $this->email->from($Correo, $numero);
-        if(strcmp(ENVIRONMENT, "development") === 0 or strcmp(ENVIRONMENT, "preproduction")){
+        if(strcmp(ENVIRONMENT, "development") === 0 or strcmp(ENVIRONMENT, "preproduction")=== 0){
             $this->email->to('pruebas@bordintex.com');
         }else{
             $this->email->to('gerencia@bordintex.com');
@@ -177,7 +177,7 @@ class Cotizar extends CI_Controller
         
         $data['mensaje'] = $mensaje;
         $this->load->view('layout-cotizar/header');
-        $this->load->view('layout-cotizar/navbar');
+        $this->load->view('layout/navbar');
         $this->load->view('cotizar', $data);
         $this->load->view('layout-cotizar/Extrafooter');
         

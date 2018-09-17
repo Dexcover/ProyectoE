@@ -140,7 +140,7 @@ class Contacto extends CI_Controller
         
         $this->email->from($Correo, $Empresa);
 
-        if(strcmp(ENVIRONMENT, "development") === 0 or strcmp(ENVIRONMENT, "preproduction")){
+        if(strcmp(ENVIRONMENT, "development") === 0 or strcmp(ENVIRONMENT, "preproduction")=== 0){
             $this->email->to('pruebas@bordintex.com');
         }else{
             $this->email->to('gerencia@bordintex.com');

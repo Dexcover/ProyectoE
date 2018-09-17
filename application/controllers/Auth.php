@@ -124,7 +124,7 @@ class Auth extends CI_Controller
                 $this->load->view('usuario/pie');
                 $this->load->view('layout/Extrafooter');
          }else{
-                $mensaje="Sus datos presentan un tipo de inconsistencia, nick o correo electrónicos ya están en uso";
+                $mensaje="Sus datos presentan un tipo de inconsistencia, cédula, nick o correo electrónicos ya están en uso";
                 $data['mensaje']=$mensaje;  
                 $this->load->view('layout-auth/header');
                 $this->load->view('layout/navbar');

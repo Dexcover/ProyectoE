@@ -56,7 +56,7 @@
 
 
 				         <div class="login-register">
-				            <a style="color: green" href="<?php echo base_url('auth/register') ?>">No tienes una cuenta?</a>
+				            <a style="color: green" href="<?php echo base_url('auth/registrar') ?>">No tienes una cuenta?</a>
 				         </div>
 			</div>
 			
