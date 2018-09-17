@@ -70,4 +70,3 @@ RewriteRule ^slug-principal-(.*)/$ blog/$1 [L]
 <FilesMatch "\.(html|htm|php|js|xml|txt|css|png|jpg)$">
 Header set Cache-Control "max-age=604800, public, must-revalidate"
 </FilesMatch>
-ss
