@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-md-6">
       <div class="alert alert-coupon">
-        <h4 style="color: #1a8fa8">Oferta especial Descsadasduento 20%</h4>
+        <h4 style="color: #1a8fa8">Oferta especial Descuento 20%</h4>
         <p>Utiliza el código <b>bordincliente</b> y accede automáticamente al descuento. <span class="text-muted">Solo clientes registrados.</span> </p>
-      </div>  
+      </div>
     </div>
-    
+
     <div class="col-md-6">
       <div class="alert alert-coupon">
         <h4 style="color: #b42e96">Oferta especial Descuento 10%</h4>
         <p>Utiliza el código <b>bordintex</b> y accede automáticamente al descuento. <span class="text-muted">Todo el público.</span> </p>
-      </div>  
+      </div>
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@
 Comunicación Efectiva<b style="color: #c325ab"> Cotiza con nosotros</b></h2> </div> </div></div>
 <div class="container" style="margin-top: 10px">
   <div class="row">
-     
+
     <div class="col-md-6">
         <div class="alert alert-coupon">
            <center>
@@ -73,7 +73,7 @@ Comunicación Efectiva<b style="color: #c325ab"> Cotiza con nosotros</b></h2> </
         </div>
     </div>
      <div class="col-md-12">
-          <center><h4 class="text-muted"><b>En Bordintex creemos fuertemente en la comunicación con sus clientes, si podemos ayudarte en cualquier solicitud que tuvieras, 
+          <center><h4 class="text-muted"><b>En Bordintex creemos fuertemente en la comunicación con sus clientes, si podemos ayudarte en cualquier solicitud que tuvieras,
           estamos encantados de poder responderte. </h4></center>
       </div>
   </div>
@@ -90,81 +90,84 @@ Productos Especiales<b style="color: #c325ab">Personalizaciones creativas</b></h
 <section >
 <div class="row">
 
-    <?php $cont=0; foreach ($seccionCarro as $pro => $value): ?>
-    
+    <?php $cont = 0;foreach ($seccionCarro as $pro => $value): ?>
+
     <?php foreach ($value as $pre => $value2): ?>
-      
-    <?php $descuento=50; $precio=$value2['PRECIO']; $vDto=bcmul($precio,bcdiv($descuento,100,2),2); $totalA=bcadd($vDto, $precio, 2); ?>
-      <?php if($cont==0): $cont++;?>
 
-      <div  class="col-md-5 col-sm-5 col-xs-12">
-              <a style="background-color: #b36fc200;" class="thumbnail fancybox" rel="ligthbox" href="<?=base_url();?>public/productos/<?php echo $value2['PROIMG']; ?>">
-              <img  class="img-responsive"  alt="" src="<?=base_url();?>public/productos/<?php echo $value2['PROIMG']; ?>">
-              </a>
+    <?php $descuento = 50;
+$precio              = $value2['PRECIO'];
+$vDto                = bcmul($precio, bcdiv($descuento, 100, 2), 2);
+$totalA              = bcadd($vDto, $precio, 2);?>
+      <?php if ($cont == 0): $cont++;?>
 
-              <div class="text-right" style="margin-top: -19px;">
-                <small class="text-muted" style="font-size: 15px;"><?=ucwords(strtolower($value2['N_PROD'])); ?></small>
-              </div>
+        <div  class="col-md-5 col-sm-5 col-xs-12">
+                <a style="background-color: #b36fc200;" class="thumbnail fancybox" rel="ligthbox" href="<?=base_url();?>public/productos/<?php echo $value2['PROIMG']; ?>">
+                <img  class="img-responsive"  alt="" src="<?=base_url();?>public/productos/<?php echo $value2['PROIMG']; ?>">
+                </a>
 
-              <div class="text-right" style="margin-top: -4px;"> 
-                <small class="text-muted" style="font-size: 15px;"><font style="color: orange">
-                  <b>Antes: </b>$<strike><?=$totalA;?></strike></font>
-                </small> 
-              </div>
-              
-              <div class="text-right" style="margin-top: -8px;">
-                <i class="fa fa-money"></i> 
-                <small class="font-titulos">$<?php echo $value2['PRECIO']; ?></small>
-              </div>
-
-              <div class="row">
-                <div class="text-right" style="margin-top: -1px; margin-bottom: 10px; margin-right:12px">
-                  <button id="producto<?php echo $value2['ID_PROD']; ?>" class="btn btn-success" onclick="addProduct(<?php echo $value2['ID_PROD']; ?>)">Añadir al carrito</button> 
+                <div class="text-right" style="margin-top: -19px;">
+                  <small class="text-muted" style="font-size: 15px;"><?=ucwords(strtolower($value2['N_PROD']));?></small>
                 </div>
-              </div>
-      </div>
 
-      <div  class="col-md-7 col-sm-7 col-xs-12">
-     
-    <?php else:?>
-      
+                <div class="text-right" style="margin-top: -4px;">
+                  <small class="text-muted" style="font-size: 15px;"><font style="color: orange">
+                    <b>Antes: </b>$<strike><?=$totalA;?></strike></font>
+                  </small>
+                </div>
+
+                <div class="text-right" style="margin-top: -8px;">
+                  <i class="fa fa-money"></i>
+                  <small class="font-titulos">$<?php echo $value2['PRECIO']; ?></small>
+                </div>
+
+                <div class="row">
+                  <div class="text-right" style="margin-top: -1px; margin-bottom: 10px; margin-right:12px">
+                    <button id="producto<?php echo $value2['ID_PROD']; ?>" class="btn btn-success" onclick="addProduct(<?php echo $value2['ID_PROD']; ?>)">Añadir al carrito</button>
+                  </div>
+                </div>
+        </div>
+
+        <div  class="col-md-7 col-sm-7 col-xs-12">
+
+      <?php else: ?>
+
      <div id="productosEspeciales" class="col-md-3 col-sm-3 col-xs-6">
 
        <div id="imagenProducto">
           <a style="background-color: #b36fc200;" class="thumbnail fancybox" rel="ligthbox" href="<?=base_url();?>public/productos/<?php echo $value2['PROIMG']; ?>">
-            <img  height="150" class="img-responsive" alt="" src="<?=base_url();?>public/productos/<?=$value2['PROIMG'];  ?>">
+            <img  height="150" class="img-responsive" alt="" src="<?=base_url();?>public/productos/<?=$value2['PROIMG'];?>">
           </a>
         </div>
-            
+
         <div id="nombreProducto" >
-              <small ><?=ucwords(strtolower($value2['N_PROD'])); ?></small>
+              <small ><?=ucwords(strtolower($value2['N_PROD']));?></small>
         </div>
 
-         <div id="precioAnterior" class="text-right" > 
+         <div id="precioAnterior" class="text-right" >
                     <small class="text-muted" ><font style="color: orange">
                       <b>Antes: </b>$<strike><?=$totalA;?></strike></font>
-                    </small> 
+                    </small>
           </div>
 
           <div id="precioAhora" class="text-right" >
-              <i class="fa fa-money"></i> 
+              <i class="fa fa-money"></i>
               <small class="font-titulos">$<?php echo $value2['PRECIO']; ?></small>
           </div>
 
-          
-            <div id="botonComprar" class="text-right" >
-              <button id="producto<?php echo $value2['ID_PROD']; ?>" class="btn btn-success" onclick="addProduct(<?php echo $value2['ID_PROD']; ?>)">Añadir al carrito</button> 
-            </div>
-          
 
-    </div>    
+            <div id="botonComprar" class="text-right" >
+              <button id="producto<?php echo $value2['ID_PROD']; ?>" class="btn btn-success" onclick="addProduct(<?php echo $value2['ID_PROD']; ?>)">Añadir al carrito</button>
+            </div>
+
+
+    </div>
     <?php endif?>
     <?php endforeach?>
     <?php endforeach?>
     </div>
     </div>
 
-  
+
 </section><!-- CC I E R R A  PRODUCTOS MOST SOLD -->
 </div>
 
