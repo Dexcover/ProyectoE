@@ -13,30 +13,36 @@ class Mmetricas extends CI_Model
 
     }
 
-    public function metricaConsultarProductos()
+    public function metricaConsultarProductos($nombreSubcategoria)
     {
-        $this->db->where('ID_METRICA', 1);
+
+        $this->db->where('NOMBRE', $nombreSubcategoria);
         $query = $this->db->get('METRICAS');
-        $uso   = $query->result_array();
-
-        $usom = $uso[0]['USO'] + 1;
-
-        $data = array('USO' => $usom);
-
-        $this->db->update('METRICAS', $data, "ID_METRICA =1");
+        if ($query->num_rows() > 0) {
+            $uso  = $query->result_array();
+            $usom = $uso[0]['USO'] + 1;
+            $data = array('USO' => $usom);
+            $this->db->update('METRICAS', $data, "NOMBRE ='$nombreSubcategoria'");
+        }
 
     }
 
-    public function addProductosCarro()
+    public function addProductosCarro($id)
     {
+        $this->db->where('ID_PROD', $id);
+        $queryPro = $this->db->get('producto');
+        $uso      = $queryPro->result_array();
+        if ($queryPro->num_rows() > 0) {
+            $usoPro = $uso[0]['USO'] + 1;
+            $data   = array('USO' => $usoPro);
+            $this->db->update('producto', $data, "ID_PROD=$id");
+        }
+
         $this->db->where('ID_METRICA', 2);
         $query = $this->db->get('METRICAS');
         $uso   = $query->result_array();
-
-        $usom = $uso[0]['USO'] + 1;
-
-        $data = array('USO' => $usom);
-
+        $usom  = $uso[0]['USO'] + 1;
+        $data  = array('USO' => $usom);
         $this->db->update('METRICAS', $data, "ID_METRICA =2");
 
     }

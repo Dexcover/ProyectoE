@@ -7,12 +7,16 @@ class Examples extends CI_Controller
 
     public function __construct()
     {
+
         parent::__construct();
         $this->load->library('session');
 
+        if (empty($this->session->userdata("cedula"))) {
+            header('Location: ' . base_url() . '');
+        }
+
         $this->load->database();
         $this->load->helper('url');
-
         $this->load->library('grocery_CRUD');
     }
 
@@ -65,7 +69,7 @@ class Examples extends CI_Controller
 
         $crud->set_theme('datatables');
         $crud->set_table('producto');
-        $crud->columns('ID_SUBCAT', 'N_PROD', 'PROIMG', 'PRECIO');
+        $crud->columns('ID_SUBCAT', 'N_PROD', 'PROIMG', 'PRECIO', 'USO');
         $crud->display_as('ID_SUBCAT', 'CATEGORIA');
         $crud->display_as('N_PROD', 'NOMBRE DEL PRODUCTO');
         $crud->display_as('PROIMG', 'IMAGEN DEL PRODUCTO');
@@ -86,7 +90,6 @@ class Examples extends CI_Controller
 
         $crud->set_theme('datatables');
         $crud->set_table('cupones');
-
 
         $output = $crud->render();
 

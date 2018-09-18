@@ -80,9 +80,12 @@ class Servicios extends CI_Controller
 
     public function obtenerProductobySub()
     {
-        $this->mmetricas->metricaConsultarProductos();
+
         $id   = $_POST['id'];
         $data = $this->mservicios->obtenerProductobySub($id);
+
+        $this->mmetricas->metricaConsultarProductos($id);
+
         echo json_encode($data);
 
     }

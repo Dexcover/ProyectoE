@@ -37,12 +37,10 @@ class Carrito extends CI_Controller
 
     public function addProduct()
     {
-        $this->mmetricas->addProductosCarro();
-
         #Traendo datos
         $id   = $_POST['id'];
         $dato = $this->mcarrito->Producto($id);
-
+        $this->mmetricas->addProductosCarro($id);
         #datos de la consulta
         $id_producto = $dato[0]['ID_PROD'];
         $nombre      = $dato[0]['N_PROD'];
